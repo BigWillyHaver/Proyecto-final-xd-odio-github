@@ -9,15 +9,7 @@
 
 
     <div class="col-4">
-
-        @if ($foto != null)
-            <img style="width: 200px;height:200px;" src="{{ $foto->temporaryUrl() }}" alt="">
-        @else
-            <img style="width: 200px;height:200px;"
-                src="{{ Storage::disk('public')->url($usuario->foto != null ? $usuario->foto : 'images/usuarios/default.png') }}"
-                alt="">
-        @endif
-
+        <img style="width: 180px;height: 180px;" src="{{$usuario->foto != null ? Storage::disk('public')->url($usuario->foto) : Storage::disk('public')->url('images/usuarios/default.png')}}" alt="" url()>
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Subir Imagen</label>
