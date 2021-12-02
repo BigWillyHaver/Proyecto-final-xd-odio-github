@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Livewire\Usuarios;
+
+class RulesUsuario
+{
+
+    public static function Reglas()
+    {
+        return
+            [
+                'usuario.nombre_usuario' => 'required|string',
+                'usuario.foto' => 'nullable|image',
+                'usuario.email' => 'numeric|required',
+                'usuario.password' => 'required',
+                'foto'=>'nullable|image'
+            ];
+    }
+}
