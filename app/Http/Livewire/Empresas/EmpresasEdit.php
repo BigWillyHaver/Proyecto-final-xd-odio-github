@@ -7,36 +7,27 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class EmpresasCreate extends Component
+class EmpresasEdit extends Component
 {
-
     use WithFileUploads;
     public Empresa $empresa;
     public $foto;
-
-    public function mount(){
-        $this->empresa = new Empresa();
-    }
-
-
     public function render()
     {
-        return view('livewire.empresas.empresas-create');
+        return view('livewire.empresas.empresas-edit');
     }
-
-    public function crear(){
-
+    public function editar()
+    {
         $this->validate();
-        if ($this->foto != null){
+        if ($this->foto != null) {
+            if ($this->empresa->foto != null) {
+                Storage::disk('public')->delete($this->empresa->foto);
+            }
             $this->empresa->foto = Storage::disk('public')->put('images/empresas', $this->foto);
         }
-
         $this->empresa->save();
-        $this->emit('empresaCreate', 'Empresa creada correctamente!');
         return redirect(route('empresas.index'));
     }
-
-    //validaciones, son importantes, aunque no las ocupes validar, tu ponlas xd
     protected function rules(){
         return[
             'empresa.nombre_empresa'=>'required|string',
@@ -45,6 +36,7 @@ class EmpresasCreate extends Component
             'empresa.numero'=>'numeric|required',
             'empresa.codigo_postal'=>'required|numeric',
             'foto'=>'nullable|image'
-        ];
-    }
+            ];
+        }
 }
+

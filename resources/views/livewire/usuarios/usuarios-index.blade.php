@@ -2,6 +2,18 @@
     <div class="col-md d-flex justify-content-center mb-2">
         <a href="{{route('usuarios.create')}}" type="button" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i> Crear un usuario nuevo</a>
     </div>
+
+    {{-- <div class="mb-2 col -3">
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">
+                <i class="fa fa-search">
+                </i>
+            </span>
+            <input wire::model="search" type="search" class="form-control" placeholder="Buscar..." aria-1
+                aria-describedby="addon-wrapping">
+        </div>
+    </div> --}}
+
         <table class="table table-hover table-dark text-center">
             <thead>
                 <tr>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Usuarios;
 
+
 use App\Models\Usuario;
 use Livewire\Component;
 

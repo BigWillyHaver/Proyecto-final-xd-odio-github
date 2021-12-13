@@ -30,21 +30,27 @@
     <div class="mx-auto col-6">
         <div class="form-group">
             <label>Nombre de usuario</label>
-            <input wire:model.defer="usuario.nombre_usuario" type="text" class="form-control">
+            <input wire:model="usuario.nombre_usuario" type="text" class="form-control">
             @error('usuario.nombre_usuario') <span class="text-danger">{{ $message }}</span>@enderror
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input wire:model.defer="usuario.email" type="text" class="form-control">
+            <input wire:model="usuario.email" type="text" class="form-control">
             @error('usuario.email') <span class="text-danger">{{ $message }}</span>@enderror
 
         </div>
 
         <div class="form-group">
             <label>Contraseña</label>
-            <input wire:model="usuario.password" type="text" class="form-control">
-            @error('usuario.password') <span class="text-danger">{{ $message }}</span>@enderror
+            <input autocomplete="new-password" wire:model.defer="password" type="password" class="form-control">
+            @error('password') <span class="text-danger">{{ $message }}</span>@enderror
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar contraseña</label>
+            <input wire:model="confirmar_password" type="password" class="form-control">
+            @error('confirmar_password') <span class="text-danger">{{ $message }}</span>@enderror
         </div>
 
     </div>
